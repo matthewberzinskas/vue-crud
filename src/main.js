@@ -1,8 +1,8 @@
 import * as Vue from "vue";
 import * as VueRouter from "vue-router";
-import App from './App.vue'
+import App from "./App.vue";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const routes = [
   {
@@ -23,4 +23,4 @@ const router = VueRouter.createRouter({
   routes,
 });
 
-Vue.createApp(App).use(router).mount('#app');
+Vue.createApp(App).use(router).mount("#app");
