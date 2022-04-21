@@ -1,17 +1,18 @@
-import firebase from "../firebase";
-const db = firebase.collection("/tutorials");
+import { db } from "../firebase";
+//const db = firebase.collection("/tutorials");
+let tutorialRef = db.collection('/tutorials');
 class TutorialDataService {
   getAll() {
-    return db;
+    return tutorialRef;
   }
   create(tutorial) {
-    return db.add(tutorial);
+    return tutorialRef.add(tutorial);
   }
   update(id, value) {
-    return db.doc(id).update(value);
+    return tutorialRef.doc(id).update(value);
   }
   delete(id) {
-    return db.doc(id).delete();
+    return tutorialRef.doc(id).delete();
   }
 }
 export default new TutorialDataService();

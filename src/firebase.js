@@ -1,7 +1,8 @@
-import * as firebase from "firebase";
-import "firebase/firestore";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
-const config = {
+const firebaseConfig = {
   apiKey: "AIzaSyCtuHR6DEr0KoS7O_is0MeVMdp64xdBLUo",
   authDomain: "vue-crud22.firebaseapp.com",
   projectId: "vue-crud22",
@@ -11,5 +12,11 @@ const config = {
   measurementId: "G-0XT1EK0K54"
 };
 
-firebase.initializeApp(config);
-export default firebase.firestore();
+// Use this to initialize the firebase App
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+// Use these for db & auth
+const db = firebaseApp.firestore();
+const auth = firebase.auth();
+
+export { auth, db };
