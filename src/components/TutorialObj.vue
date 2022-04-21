@@ -32,16 +32,10 @@
     >
       UnPublish
     </button>
-    <button
-      v-else
-      class="badge bg-primary mr-2"
-      @click="updatePublished(true)"
-    >
+    <button v-else class="badge bg-primary mr-2" @click="updatePublished(true)">
       Publish
     </button>
-    <button class="badge bg-danger mr-2" @click="deleteTutorial">
-      Delete
-    </button>
+    <button class="badge bg-danger mr-2" @click="deleteTutorial">Delete</button>
     <button type="submit" class="badge bg-success" @click="updateTutorial">
       Update
     </button>
@@ -77,7 +71,11 @@ export default {
       })
         .then(() => {
           this.currentTutorial.published = status;
-          this.message = "The status was updated successfully!";
+          if (status) {
+            this.message = "The status was published successfully!";
+          } else {
+            this.message = "The status was un-published successfully!";
+          }
         })
         .catch((e) => {
           console.log(e);
